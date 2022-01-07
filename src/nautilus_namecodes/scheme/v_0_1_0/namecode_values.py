@@ -59,7 +59,7 @@ class BasicType:
 
 
 class Purpose:
-    """The Basic Purpose of Media File"""
+    """The Basic Purpose of Media Item File"""
 
     _name: str = "Purpose"
 
@@ -121,10 +121,8 @@ class Purpose:
         return self._plane
 
 
-class Modifications:
-    """The Modifications Listed for a Media File"""
-
-    _name: str = "Modification"
+class Listing:
+    """Media Items Listed for New Editions or Revisions"""
 
     class Editions:
         """Media Files may have Many Editions"""
@@ -181,6 +179,11 @@ class Modifications:
             return Block(
                 name=self._name, description=self.__doc__, sections=self.sections
             )
+
+class Modifications:
+    """Changes to Media Items are Summarized"""
+
+    _name: str = "Modification"
 
     class Adaptions:
         """Media Files may be adapted"""
@@ -413,7 +416,7 @@ class Modifications:
                 name=self._name, description=self.__doc__, sections=self.sections
             )
 
-    class Embeddedings:
+    class Embeddings:
         """Metadata may be embedded within the media file"""
 
         _name: str = "Embedded"
@@ -450,7 +453,7 @@ class Modifications:
                 Modifications.Adaptions().block,
                 Modifications.Transformations().block,
                 Modifications.Formats().block,
-                Modifications.Embeddedings().block,
+                Modifications.Embeddings().block,
             ]
         )
 
